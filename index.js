@@ -4,36 +4,61 @@ const fs = require("fs");
 const axios = require("axios");
 const inquirer = require("inquirer");
 const util = require("util");
-const fetch = require("node-fetch");
-const prompts = require("./prompts");
-const html = require("./generateHTML");
+// const fetch = require("node-fetch");
+// const prompts = require("./prompts");
+const generateHTML = require("./generateHTML");
 
-const writeFileAsync = util.promisify(fs.writeFile);
+// const writeFileAsync = util.promisify(fs.writeFile);
 
-inquirer.prompt([
-  {
-    type: "iput",
-    message: "Enter your GitHub username:",
-    name: "username"
-  },
-  {
-    type: "list",
-    name: "color",
-    message: "What is your favorite color?",
-    choices: ["red", "blue", "pink", "green"],
-  }
-])
+async function getGitHubInfo() {
+  try {
+    const { username, color } = await inquirer.prompt([
+      {
+        name: "username",
+        type: "ipnut",
+        message: "Enter your GitHub username:"
+      },
+      {
+        name: "color",
+        type: "list",
+        message: "What is your favorite color?",
+        choices: ["red", "blue", "pink", "green"]
+      }
+    ]);
 
-  .then(({ username }) => {
-    const queryUrl = `https://api.github.com/users/${username}`;
+    const { data: response1 } = await axios.get(
+      `https://api.github.com/users/${username}`
+    );
+    const { data: response2 } = await axios.get(
+      `https://api.github.com/users/${username}/starred`
+    );
+    // console.log(response1);
+    // console.log(response2);
 
-    axios.get(queryUrl).then(res => {
-      console.log(res);
+    const html = generateHTML({
+      avatarUrl: response1.avatar_url,
+      name: response1.name,
+      username: response1.login,
+      github: response1.html_url,
+      bio: response1.bio,
+      blog: response1.blog,
+      location: response1.location,
+      followers: response1.followers,
+      following: response1.following,
+      repos: response1.public_repos,
+      stars: response2.length,
+      color: color
     });
-  });
 
-// function writeToFile(fileName, data) {}
+    fs.writeFile("index.html", html, err => {
+      console.log(err);
+    });
 
-// function init() {}
+    // await writeFileAsync('index.html', html);
+    // console.log('Successfully wrote to index.html');
+  } catch (error) {
+    console.log(error);
+  }
+}
 
-// init();
+getGitHubInfo();
