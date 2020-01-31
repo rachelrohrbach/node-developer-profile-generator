@@ -36,6 +36,7 @@ function generateHTML(data) {
       <meta http-equiv="X-UA-Compatible" content="ie=edge" />
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"/>
       <link href="https://fonts.googleapis.com/css?family=BioRhyme|Cabin&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
       <title>Document</title>
       <style>
           @page {
@@ -121,15 +122,13 @@ function generateHTML(data) {
          .photo-header h5 {
           margin-bottom: 10px;
          }
-         .links-nav {
+
+         .nav-link {
+         margin: 5px 10px;
          width: 100%;
          text-align: center;
          padding: 20px 0;
          font-size: 1.1em;
-         }
-         .nav-link {
-         display: inline-block;
-         margin: 5px 10px;
          }
          .workExp-date {
          font-style: italic;
@@ -183,10 +182,10 @@ function generateHTML(data) {
       <header class="photo-header">
           <img src="${data.avatarUrl}" alt="user-image">
           <h1>Hi!</h1>
-          <h2>My name is ! ${data.name}</h2>
+          <h2>My name is ${data.name}!</h2>
           <ul class="nav justify-content-center">
               <li class="nav-item">
-                  <a class="nav-link" href="${ "fill in later"}"><i class="fas fa-location-arrow"></i>${data.location}</a>
+                  <a class="nav-link" href="#"><i class="fas fa-location-arrow"></i>${data.location}</a>
               </li>
               <li class="nav-item">
                   <a class="nav-link" href=${data.github}> <i class="fab fa-github-alt"></i> GitHub</a>
@@ -241,6 +240,7 @@ function generateHTML(data) {
           </div>
       </main>
   </div>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 </body>`;
 }
 
