@@ -4,11 +4,11 @@ const fs = require("fs");
 const axios = require("axios");
 const inquirer = require("inquirer");
 const util = require("util");
-// const fetch = require("node-fetch");
-// const prompts = require("./prompts");
 const generateHTML = require("./generateHTML");
+// const pdf = require("html-pdf");
+const puppeteer = require("puppeteer");
 
-// const writeFileAsync = util.promisify(fs.writeFile);
+const writeFileAsync = util.promisify(fs.writeFile);
 
 async function getGitHubInfo() {
   try {
@@ -22,7 +22,7 @@ async function getGitHubInfo() {
         name: "color",
         type: "list",
         message: "What is your favorite color?",
-        choices: ["red", "blue", "pink", "green"]
+        choices: ["red", "blue", "pink", "green", "purple", "yellow"]
       }
     ]);
 
@@ -50,14 +50,33 @@ async function getGitHubInfo() {
       color: color
     });
 
-    fs.writeFile("index.html", html, err => {
+    await writeFileAsync("index.html", html, err => {
       console.log(err);
     });
-
-    // await writeFileAsync('index.html', html);
-    // console.log('Successfully wrote to index.html');
   } catch (error) {
     console.log(error);
+  } finally {
+    async function printPDF() {
+      const browser = await puppeteer.launch({ headless: true });
+      const page = await browser.newPage();
+      await page.goto(
+        "file:///C:/Users/Rachel%20Rohrbach/Desktop/uw-boot-camp-2/homework/homework-9/homework-9/index.html"
+      );
+      const pdf = await page.pdf({
+        path: "index.pdf",
+        format: "A4",
+        margin: {
+          top: "20px",
+          left: "20px",
+          right: "20px",
+          bottom: "20px"
+        }
+      });
+
+      await browser.close();
+      return pdf;
+    }
+    printPDF();
   }
 }
 
