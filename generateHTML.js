@@ -4,8 +4,8 @@ const colors = {
   green: {
     wrapperBackground: '#E6E1C3',
     headerBackground: '#C1C72C',
-    headerColor: 'black',
-    photoBorderColor: '#black'
+    headerColor: 'white',
+    photoBorderColor: 'white'
   },
   blue: {
     wrapperBackground: '#5F64D3',
@@ -14,15 +14,27 @@ const colors = {
     photoBorderColor: '#73448C'
   },
   pink: {
-    wrapperBackground: '#879CDF',
-    headerBackground: '#FF8374',
+    wrapperBackground: '#FFB6C1',
+    headerBackground: '#FF69B4',
     headerColor: 'white',
-    photoBorderColor: '#FEE24C'
+    photoBorderColor: 'white'
   },
   red: {
     wrapperBackground: '#DE9967',
     headerBackground: '#870603',
     headerColor: 'white',
+    photoBorderColor: 'white'
+  },
+  purple: {
+    wrapperBackground: '#9932cc',
+    headerBackground: '#8b008b',
+    headerColor: 'white',
+    photoBorderColor: 'white'
+  },
+  yellow: {
+    wrapperBackground: '#ffff00',
+    headerBackground: '#ffd700',
+    headerColor: 'black',
     photoBorderColor: 'white'
   }
 };
@@ -179,6 +191,7 @@ function generateHTML(data) {
 
 <body>
   <div class="wrapper">
+  <div id="pageHeader"></div>
       <header class="photo-header">
           <img src="${data.avatarUrl}" alt="user-image">
           <h1>Hi!</h1>
@@ -240,6 +253,7 @@ function generateHTML(data) {
           </div>
       </main>
   </div>
+  <div id="pageFooter"></div>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 </body>`;
 }
