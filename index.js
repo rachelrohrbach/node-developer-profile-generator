@@ -5,12 +5,11 @@ const axios = require("axios");
 const inquirer = require("inquirer");
 const util = require("util");
 const generateHTML = require("./generateHTML");
-// const pdf = require("html-pdf");
 const puppeteer = require("puppeteer");
 
 const writeFileAsync = util.promisify(fs.writeFile);
 
-async function getGitHubInfo() {
+async function init() {
   try {
     const { username, color } = await inquirer.prompt([
       {
@@ -80,4 +79,4 @@ async function getGitHubInfo() {
   }
 }
 
-getGitHubInfo();
+init();
