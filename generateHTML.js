@@ -2,8 +2,8 @@
 
 const colors = {
   green: {
-    wrapperBackground: '#E6E1C3',
-    headerBackground: '#C1C72C',
+    wrapperBackground: '#C1C72C',
+    headerBackground: '#006400',
     headerColor: 'white',
     photoBorderColor: 'white'
   },
