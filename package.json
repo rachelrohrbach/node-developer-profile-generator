@@ -1,0 +1,32 @@
+{
+  "name": "homework-9",
+  "version": "1.0.0",
+  "description": "developer profile generator",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rachelrohrbach/homework-9.git"
+  },
+  "keywords": [
+    "developer",
+    "profile"
+  ],
+  "author": "rachel rohrbach",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rachelrohrbach/homework-9/issues"
+  },
+  "homepage": "https://github.com/rachelrohrbach/homework-9#readme",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "html-to-pdf": "^0.1.11",
+    "inquirer": "^7.0.4",
+    "node-fetch": "^2.6.0",
+    "octonode": "^0.9.5",
+    "prompt": "^1.0.0",
+    "puppeteer": "^2.1.0"
+  }
+}
