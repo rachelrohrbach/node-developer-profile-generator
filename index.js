@@ -52,31 +52,32 @@ async function init() {
     await writeFileAsync("index.html", html, err => {
       console.log(err);
     });
+
+    printPDF();
   } catch (error) {
     console.log(error);
-  } finally {
-    async function printPDF() {
-      const browser = await puppeteer.launch({ headless: true });
-      const page = await browser.newPage();
-      await page.goto(
-        "file:///C:/Users/Rachel%20Rohrbach/Desktop/uw-boot-camp-2/homework/homework-9/homework-9/index.html"
-      );
-      const pdf = await page.pdf({
-        path: "index.pdf",
-        format: "A4",
-        margin: {
-          top: "20px",
-          left: "20px",
-          right: "20px",
-          bottom: "20px"
-        }
-      });
-
-      await browser.close();
-      return pdf;
-    }
-    printPDF();
   }
+}
+
+async function printPDF() {
+  const browser = await puppeteer.launch({ headless: true });
+  const page = await browser.newPage();
+  await page.goto(
+    "file:///C:/Users/Rachel%20Rohrbach/Desktop/uw-boot-camp-2/homework/homework-9/homework-9/index.html"
+  );
+  const pdf = await page.pdf({
+    path: "index.pdf",
+    format: "A4",
+    margin: {
+      top: "20px",
+      left: "20px",
+      right: "20px",
+      bottom: "20px"
+    }
+  });
+
+  await browser.close();
+  return pdf;
 }
 
 init();
