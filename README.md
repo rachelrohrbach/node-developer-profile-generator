@@ -28,7 +28,7 @@ This project is created with:
 ![project screenshot](\assets\node-screenshot.png)
 ![project](\assets\html-screenshot.png)
 
-![Example demo](./assets/node-profile-generator.mp4)
+![Example demo](https://drive.google.com/file/d/1X8PO_jn1dXyT_SZhV94mvRgcp2J6KzXS/view?usp=sharing)
 
 
 # Credits
