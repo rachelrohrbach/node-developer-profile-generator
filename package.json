@@ -29,8 +29,5 @@
     "octonode": "^0.9.5",
     "prompt": "^1.0.0",
     "puppeteer": "^2.1.0"
-  },
-  "scripts": {
-    "test": "jest"
-  },
+  }
 }
