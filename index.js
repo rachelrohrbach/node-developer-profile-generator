@@ -62,9 +62,7 @@ async function init() {
 async function printPDF() {
   const browser = await puppeteer.launch({ headless: true });
   const page = await browser.newPage();
-  await page.goto(
-    "file:///C:/Users/Rachel%20Rohrbach/Desktop/uw-boot-camp-2/homework/homework-9/homework-9/index.html"
-  );
+  await page.goto(`file://${path.resolve(__dirname, "index.html")}`);
   const pdf = await page.pdf({
     path: "index.pdf",
     format: "A4",
