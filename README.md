@@ -8,12 +8,19 @@
 * [License](#license)
 
 ## General info
-This project is a command-line application that dynamically generates a PDF profile from a GitHub username. The application is invoked with the following command:
+This project is a command-line application that dynamically generates a PDF profile from a GitHub username. First the user must use the following command to install dependencies required:
+```sh
+npm install
+```
+The application is then invoked with the following commands:
 ```sh
 node index.js
 ```
 The user is then prompted for a favorite color, which will be used as the background color for the generated html and pdf.  
-	
+There are also unit tests included to test that the response object is correctly being passed to the generateHTML function which can be invoked with the following command:
+```sh
+npm run test
+```
 ## Technologies
 This project is created with: 
 * Node.js 
@@ -25,8 +32,8 @@ This project is created with:
 * JavaScript
 
 ## Screenshots 
-![project screenshot](\assets\node-screenshot.png)
-![project](\assets\html-screenshot.png)
+![project screenshot](assets/node-screenshot.png)
+![project](assets/html-screenshot.png)
 
 ![Example demo](https://drive.google.com/file/d/1X8PO_jn1dXyT_SZhV94mvRgcp2J6KzXS/view?usp=sharing)
 
