@@ -35,7 +35,7 @@ This project is created with:
 ![project screenshot](assets/node-screenshot.png)
 ![project](assets/html-screenshot.png)
 
-Link to application demo video video: (https://drive.google.com/file/d/1X8PO_jn1dXyT_SZhV94mvRgcp2J6KzXS/view?usp=sharing)
+Link to application demo video video: https://drive.google.com/file/d/1X8PO_jn1dXyT_SZhV94mvRgcp2J6KzXS/view?usp=sharing
 
 
 # Credits
